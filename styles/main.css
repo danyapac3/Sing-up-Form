@@ -1,0 +1,244 @@
+/* My tiny boilerplate */
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+:root {
+  font-family: system-ui, sans-serif;
+}
+
+
+input,
+select,
+text-area,
+button {
+  font-size: inherit;
+  font-family: inherit;
+}
+
+/* End */
+
+:root {
+  --logo-fg-color: white;
+  --logo-bg-color: rgba(0, 0, 0, 0.45);
+  --main-section-side-padding: 40px;
+  --valid-image: url("../images/check-mark.svg");
+  --invalid-image: url("../image/xmark-solid.svg")
+}
+
+@font-face {
+  font-family: "norse";
+  src: 
+    url(../fonts/Norse-Bold.woff) format("woff"),
+    url(../fonts/Norse-Bold.woff2) format("woff2");
+  font-weight: bold;
+}
+
+.wrapper {
+  min-height: 100vh;
+  display: flex;
+}
+
+@media (max-width: 1024px) {
+  .wrapper {
+    flex-direction: column;
+  }    
+}
+
+.banner {
+  background-image: url(../images/background.jpg);
+  background-position: center;
+  background-size: cover;
+  flex-basis: 450px;
+  flex-shrink: 1;
+  position: relative;
+  z-index: 2;
+}
+
+.banner__logo {
+  font-family: norse;
+  height: 120px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--logo-bg-color);
+  padding: 10px 0;
+  margin-top: 200px;
+}
+
+.logo__title {
+  font-size: 75px;
+  color: var(--logo-fg-color);
+}
+
+.logo__image {
+  height: 100%;
+}
+
+@media (max-width: 1024px) {
+  .banner {
+    flex-basis: 100px;
+    flex-grow: 0;
+  }
+  
+  .banner__logo {
+    margin-top: 0;
+    justify-content: center;
+  }
+}
+
+.main {
+  background-color: rgba(0, 0, 255, 0.47);
+  flex-basis: 750px;
+  flex-grow: 1;
+  flex-shrink: 0;
+}
+
+.main {
+  background-color: rgb(244, 245, 247);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.form {
+  background: white;
+  padding: 15px var(--main-section-side-padding) 40px;
+  box-shadow: 0 5px 8px rgb(221, 220, 220);
+}
+
+.main__text, .form__submit-section {
+  flex-basis: 0;
+  flex-grow: 1;
+  padding: 0 var(--main-section-side-padding);
+}
+
+.form__input-groups {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px 80px;
+  margin-top: 20px;
+}
+
+.form__input-group {
+  flex-basis: 35%;
+  min-width: 250px;
+}
+
+.form__input-group > label {
+  display: block;
+  text-transform: uppercase;
+  font-weight: 600;
+  font-size: 16px;
+  color: gray;
+  letter-spacing: 1px;
+}
+
+.form__input-group > label::after {
+  content: "*";
+  color: rgb(214, 81, 81);
+}
+
+.form__input-wrapper {
+  border: 2px #E5E7EB solid;
+  border-radius: 5px;
+  overflow: hidden;
+  width: 100%;
+  position: relative;
+  box-shadow: 3px 3px 5px #ffffff00;
+  transition: box-shadow 0.3s;
+}
+
+.form__input-wrapper::after {
+  position: absolute;
+  display: block;
+  content: "";
+  height: 25px;
+  width: 25px;
+  border-radius: 999px;
+  background-color: rgb(255, 255, 255);
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  background-image: url("../images/check-mark.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 15px;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.form__input-wrapper:has(input:not(:placeholder-shown):not(:focus))::after {
+  opacity: 1;
+  background-color: rgb(129, 229, 129);
+}
+
+.form__input-wrapper:has(input:invalid:not(:placeholder-shown):not(:focus))::after {
+  opacity: 1;
+  background-color: rgb(221, 109, 109);
+}
+
+.form__input-wrapper input{
+  display: block;
+  width: 100%;
+  line-height: 1.8;
+  font-size: 20px;
+  padding: 0 10px;
+  border: none;
+}
+
+.form__input-wrapper input::placeholder {
+  color: #b0b0b0af;
+}
+
+.form__input-wrapper:has(input:focus) {
+  outline: none;
+  border: 2px #2f6fee solid;
+  box-shadow: 3px 3px 5px #2f6fee79; 
+}
+
+.form__input-wrapper input:focus {
+  outline: none;
+}
+
+.main__text {
+  display: flex;
+  flex-direction: column;
+  font-weight: bold;
+  font-size: 22px;
+  padding-bottom: 52px;
+  justify-content: flex-end;
+}
+
+.main__text > p {
+  max-width: 800px;
+}
+.main__text > p:not(:last-child) {
+  margin-bottom: 24px;
+}
+
+.form__submit-section {
+  padding-top: 32px;
+}
+
+.form__submit-section > button {
+  padding: 12px 40px;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  background-color: #596D48;
+  color: white;
+  transition: background-color 0.3s;
+}
+
+.form__submit-section > button:not(:last-child) {
+  margin-bottom: 32px;
+}
+
+@media (any-hover: hover) {
+  .form__submit-section > button:hover {
+    background-color: #7c8376
+  } 
+}

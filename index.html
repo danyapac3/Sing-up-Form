@@ -3,12 +3,74 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="./style.css">
+  <link rel="stylesheet" href="./styles/main.css">
   <title>Odin Sing-up form</title>
 </head>
 <body>
-  <h1 class="some">Some ridiculous content</h1>
-  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore reiciendis mollitia quisquam iure, illo dolorum quos aut voluptas. Numquam animi sapiente, molestiae ipsa dolorum atque ipsam porro ad asperiores quae explicabo nesciunt rerum veritatis reiciendis enim vero repudiandae. Inventore amet voluptates quidem expedita sint est animi debitis perferendis fugit explicabo.s</p>
+  <div class="wrapper">
+    <div class="wrapper__banner banner">
+      <div class="banner__logo logo">
+        <img class="logo__image" src="images/odin-lined-logo.png" alt="odin-logo">
+        <span class="logo__title">odin</span>
+      </div>
+    </div>
+    <main class="wrapper__main main">
+      <div class="main__text">
+        <p>This is not a real online service! You know you need something like this in your life to help you realize your deepest dreams. Sign up now to get started.</p>
+
+        <em>
+          <p>You know you want to.</p>
+        </em>
+      </div>
+      <form class="main__form form" id="form" form method="post" action="https://formtester.goodbytes.be/post.php" >
+        <h2 class="form__title">Let's do this!</h2>
+        <div class="form__input-groups">
+          <div class="form__input-group">
+            <label for="first_name">first name</label>
+            <div class="form__input-wrapper">
+              <input placeholder="Danilo" type="text" id="first_name" name="first_name" required>
+            </div>
+          </div>
+          <div class="form__input-group">
+            <label for="last_name">last name</label>
+            <div class="form__input-wrapper">              
+              <input placeholder="Rudenko" type="text" id="last_name" name="last_name" required>
+            </div>
+          </div>
+          <div class="form__input-group">
+            <label for="email">email</label>
+            <div class="form__input-wrapper">              
+              <input placeholder="example@mail.com" type="email" id="email" name="email" required>
+            </div>
+          </div>
+          <div class="form__input-group">
+            <label for="phone_number">phone number</label>
+            <div class="form__input-wrapper">              
+              <input placeholder="+380951234567" type="tel" id="phone_number" name="phone_number" required>
+            </div>
+          </div>
+          <div class="form__input-group">
+            <label for="password">password</label>
+            <div class="form__input-wrapper">              
+              <input pattern="(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9]).{8,}" placeholder="g1n3gk3I20" type="password" id="password" name="password" required>
+            </div>
+          </div>
+          <div class="form__input-group">
+            <label for="confirm_password">confirm password</label>
+            <div class="form__input-wrapper">            
+              <input pattern="(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9]).{8,}" placeholder="g1n3gk3I20" type="password" id="confirm_password" required>
+            </div>
+          </div>
+        </div>
+      </form>
+      <div class="form__submit-section">
+        <button form="form">Create Account</button>
+        <div class="form__log-in-text">
+          Already have an account? <a href="#">Log In</a>
+        </div>
+      </div>
+    </main>
+  </div>
   <script src="./script.js"></script>
 </body>
 </html>
