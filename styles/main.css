@@ -25,7 +25,7 @@ button {
   --logo-bg-color: rgba(0, 0, 0, 0.45);
   --main-section-side-padding: 40px;
   --valid-image: url("../images/check-mark.svg");
-  --invalid-image: url("../image/xmark-solid.svg")
+  --invalid-image: url("../images/xmark-solid.svg");
 }
 
 @font-face {
@@ -153,6 +153,7 @@ button {
 
 .form__input-wrapper::after {
   position: absolute;
+  z-index: 2;
   display: block;
   content: "";
   height: 25px;
@@ -162,7 +163,7 @@ button {
   right: 10px;
   top: 50%;
   transform: translateY(-50%);
-  background-image: url("../images/check-mark.svg");
+  background-image: var(--valid-image);
   background-repeat: no-repeat;
   background-position: center;
   background-size: 15px;
@@ -173,11 +174,13 @@ button {
 .form__input-wrapper:has(input:not(:placeholder-shown):not(:focus))::after {
   opacity: 1;
   background-color: rgb(129, 229, 129);
+  background-image: var(--valid-image);
 }
 
 .form__input-wrapper:has(input:invalid:not(:placeholder-shown):not(:focus))::after {
   opacity: 1;
   background-color: rgb(221, 109, 109);
+  background-image: var(--invalid-image)
 }
 
 .form__input-wrapper input{
@@ -187,6 +190,7 @@ button {
   font-size: 20px;
   padding: 0 10px;
   border: none;
+  position: relative;
 }
 
 .form__input-wrapper input::placeholder {
